@@ -274,6 +274,30 @@ public class Sistema {
 			}
 			return listaAux;
 	}
+	
+	
+	//Orion Quimey Jaime Adell
+		public boolean agregarPedido(LocalDate fecha, UnidadVenta unidadVenta) {
+			boolean agregado = false;
+			if (unidadVenta != null && festival != null) {
+				int id = 1;
+
+				if (pedidos.size() > 0) {
+					id = pedidos.get(pedidos.size() - 1).getIdPedido() + 1;
+				}
+
+				Pedido nuevo = new Pedido(id, fecha, festival, unidadVenta);
+				agregado = pedidos.add(nuevo);
+			}
+
+			return agregado;
+		}
+
+		//Orion Quimey Jaime Adell
+		public float calcularRentabilidadNeta(UnidadVenta unidadVenta, Festival festival) {
+			float rentabilidad = calcularRecaudacionUnidad(unidadVenta, festival) - calcularCostoPlatosUnidad(unidadVenta, festival) - unidadVenta.totalSueldos() - unidadVenta.calcularCanon(costos);
+			return rentabilidad;
+		}
 
 	
 	//getters y setters

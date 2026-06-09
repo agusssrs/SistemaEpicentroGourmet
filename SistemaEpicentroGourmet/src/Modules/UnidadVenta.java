@@ -30,7 +30,38 @@ public abstract class UnidadVenta {
 		}
 	}
 	
-
+	//Orion Quimey Jaime Adell
+		public boolean agregarPlato(String nombrePlato, float precioVenta, float precioProduccion) {
+			int id = 1;
+			if (menu.size() > 0) {
+				id = menu.get(menu.size() - 1).getIdPlato() + 1;
+			}
+			return menu.add(new Plato(id, nombrePlato, precioVenta, precioProduccion));
+		}
+		
+	//Orion Quimey Jaime Adell
+	public Plato traerPlato(int idPlato) {
+			Plato aux = null;
+			int i = 0;
+			while (i < menu.size() && aux == null) {
+				if (menu.get(i).getIdPlato() == idPlato) {
+					aux = menu.get(i);
+			}
+			i++;
+		}
+		return aux;
+	}
+		
+	//Orion Quimey Jaime Adell
+	public float totalSueldos() {
+			float total = 0;
+			for (int i = 0; i < staff.size(); i++) {
+				total += staff.get(i).sueldoFinal();
+			}
+			return total;
+	}
+	
+	
 	//Agustin Nicolas Mancini
 	public abstract float calcularCanon(ConfiguracionCostos costos);
 	
