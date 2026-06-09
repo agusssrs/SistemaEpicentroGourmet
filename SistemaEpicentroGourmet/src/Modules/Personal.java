@@ -36,7 +36,15 @@ public abstract class Personal {
 
 			return edad;
 		}
+		//Alejo Tomas Machado Prieto 
+		public int antiguedad() {
+			return fechaActual.getYear() - fechaIngreso.getYear();
+		}
+		
+		//Alejo Tomas Machado Prieto 
+		public abstract float sueldoFinal();
 
+		
 	public int getIdPersonal() {
 		return idPersonal;
 	}

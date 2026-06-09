@@ -29,9 +29,15 @@ public abstract class UnidadVenta {
 			throw new IllegalArgumentException("Codigo invalido");
 		}
 	}
+	
 
 	//Agustin Nicolas Mancini
 	public abstract float calcularCanon(ConfiguracionCostos costos);
+	
+	//Alejo Tomas Machado Prieto 
+	public boolean agregarPersonal(Personal personal) {
+			return staff.add(personal);
+	}
 
 	public int getIdUnidadVenta() {
 		return idUnidadVenta;

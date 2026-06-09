@@ -11,7 +11,11 @@ public class Cajero extends Personal {
 	}
 
 
-	
+	//Alejo Tomas Machado Prieto 
+	@Override
+	public float sueldoFinal() {
+		return sueldoBase + 5000 * antiguedad();
+	}
 
 	public String getTurno() {
 		return turno;

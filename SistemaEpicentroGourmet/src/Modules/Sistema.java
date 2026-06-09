@@ -224,7 +224,59 @@ public class Sistema {
 
 		return top3;
 	}
+	
+	//Alejo Tomas Machado Prieto 
+	public boolean agregarFestival(String nombre, String temporada, LocalDate fechaInicio, LocalDate fechaFin) {
+			festival = new Festival(1, nombre, temporada, fechaInicio, fechaFin);
+			return true;
+	}
 
+		//Alejo Tomas Machado Prieto
+	public boolean eliminarFestival() {
+			festival = null;
+			return true;
+	}
+		
+		//Alejo Tomas Machado Prieto 
+	public boolean agregarCocinero(String nombre, String apellido, int dni, LocalDate fechaNacimiento, LocalDate fechaIngreso, String especialidad, String categoria, float plusFijo) {
+			int id = 1;
+			
+			if (personal.size() > 0) {
+				id = personal.get(personal.size() - 1).getIdPersonal() + 1;
+			}
+
+			Cocinero nuevo = new Cocinero(id, nombre, apellido, dni, fechaNacimiento, fechaIngreso, costos.getSueldoBase(), especialidad, categoria, plusFijo);
+			return personal.add(nuevo);
+	}
+		
+		//Alejo Tomas Machado Prieto
+	public boolean agregarCajero(String nombre, String apellido, int dni, LocalDate fechaNacimiento, LocalDate fechaIngreso, String turno)  {
+			int id = 1;
+
+			if (personal.size() > 0) {
+				id = personal.get(personal.size() - 1).getIdPersonal() + 1;
+			}
+
+			Cajero nuevo = new Cajero(id, nombre, apellido, dni, fechaNacimiento, fechaIngreso, costos.getSueldoBase(), turno);
+			return personal.add(nuevo);
+	}
+
+		//Alejo Tomas Machado Prieto 
+	public List<Personal> auditoriaPersonalFestival(Festival festival) {
+		List<Personal> listaAux = new ArrayList<Personal>();
+
+			for (UnidadVenta unidad : unidadesVentas) {
+				for (Personal p : unidad.getStaff()) {
+					if (!listaAux.contains(p)) {
+						listaAux.add(p);
+					}
+				}
+			}
+			return listaAux;
+	}
+
+	
+	//getters y setters
 	public Festival getFestival() {
 		return festival;
 	}

@@ -14,6 +14,11 @@ public class Cocinero extends Personal {
 		this.plusFijo = plusFijo;
 	}
 
+	//Alejo Tomas Machado Prieto 
+		@Override
+		public float sueldoFinal() {
+			return sueldoBase + plusFijo;
+		}
 
 	@Override
 	public String toString() {
